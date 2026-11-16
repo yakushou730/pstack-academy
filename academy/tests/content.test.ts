@@ -78,11 +78,11 @@ describe('pinned, traceable curriculum',()=>{
     }
     for(const id of ['x-blog','x-part-2']){
       const source=authorSources.find(s=>s.id===id)!;
-      expect(source.access).toBe('body');
-      expect(source.limitation).toContain('截斷');
+      expect(source.access).toBe('provided');
+      expect(source.limitation).toContain('使用者貼上的完整正文');
     }
     for(const guide of articleGuides){
-      expect(authorSources.some(s=>s.url===guide.url&&s.access==='body')).toBe(true);
+      expect(authorSources.some(s=>s.url===guide.url&&s.access==='provided')).toBe(true);
       for(const step of guide.steps){
         for(const id of step.componentIds)expect(componentById.has(id),`${guide.id} -> ${id}`).toBe(true);
       }

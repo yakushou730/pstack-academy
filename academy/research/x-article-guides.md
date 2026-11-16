@@ -1,15 +1,15 @@
 # 兩篇 X 指南的閱讀與教材補記
 
-日期：2026-11-16（Asia/Taipei）。在使用者已登入並明確授權後，透過 Chrome 桌面視窗的 accessibility tree 閱讀兩篇原文。瀏覽器專用連接器仍回報 host unavailable；本次取得的是桌面視窗內容，不是 HTTP 抓取或帳號憑證。
+日期：2026-11-16（Asia/Taipei）。最初透過已登入且授權的 Chrome 讀取時，長段落曾被截斷。使用者隨後在本對話提供兩篇完整正文與程式碼／提示範例；本次以完整文字重新核對並補齊教材。
 
 ## 來源與取得範圍
 
-| 來源 | 作者 | 頁面日期 | 取得範圍 |
+| 來源 | 作者 | 日期（年份未標示） | 取得範圍 |
 | --- | --- | --- | --- |
-| [The Complete Guide to pstack Pt. 1](https://x.com/poteto/article/2094457600259842065?lang=en) | lauren / @poteto | 9 月 1 日；未顯示年份 | 正文主要章節、CLI 與 Feature Map 程式範例、結尾；部分長段落截斷、嵌圖未逐一核實 |
-| [The Complete Guide to pstack Pt. 2](https://x.com/poteto/article/2097732320606507506) | lauren / @poteto | 9 月 10 日；未顯示年份 | 研究、文件、原型、架構、計畫與四個使用情境，讀至結尾；部分長段落截斷、嵌圖未逐一核實 |
+| [The Complete Guide to pstack Pt. 1](https://x.com/poteto/article/2094457600259842065?lang=en) | lauren / @poteto | 9 月 1 日 | 使用者提供完整正文、CLI 與 Feature Map 範例 |
+| [The Complete Guide to pstack Pt. 2](https://x.com/poteto/article/2097732320606507506) | lauren / @poteto | 9 月 10 日 | 使用者提供完整正文與提示範例 |
 
-因此取得標記使用「已讀正文（局部截斷）」，不標成「已讀全文」。兩篇都不在本站重刊全文；中文導讀、練習題、CLI 與提示範例是教學者重新編寫的內容，不是作者逐字引文。
+目前標記「已取得完整正文（使用者提供）」，文字缺口已補齊；原頁嵌圖未逐張獨立核對。兩篇不在本站重刊全文。中文導讀與練習為教材改寫；程式碼／提示區分「作者原例」及「教材自編」。Atlas CLI 節錄的註解與指令分類作簡化編排，指令本體保留原例。
 
 ## Part 1：驗證能力作為工程基礎
 
@@ -30,3 +30,9 @@
 - 雲端、歷史查詢、模型與評估能力依宿主及連接器而定。
 - 文章可能描述其他時間點的版本。學院的 58 個 Skills、23 個 Playbooks 與原始碼證據仍固定於 mirror commit `74bcc61bd216687b1d6d480c28f109adfc9824ec`。
 - 文章文字不取代原始碼，元件映射表示主題對照，不宣稱已逐次執行本文所有工作流。
+
+## 完整正文核對後的補充
+
+- Part 1：Dr Eggbot、技能啟動方式、CDP／模擬器／LLDB／sidecar、CLI 六類指令與設計準則、測試資料／auth／staging、雲端快照與協調 Bot、Feature Map 目錄結構與 materialized memory、效能 trace／swarm、回報自動重現。保留作者 Atlas CLI 與 Preferences 地圖節錄，另保留教材自編範本。
+- Part 2：Diátaxis 四種文件用途、unslop、原型切換器與實際時間、Playbook／Skill 區分、跨模型架構評估、重複 workaround 及 any／強制轉型的設計警訊、計畫格式與真實驗證的差別、暫存計畫的作者偏好。補入機制／歷史提示、三階段倒推設計提示與四個實務情境原例。
+- 原頁未提供的圖片內容、發表年份與獨立成效實驗不因文字補齊而推定已驗證。

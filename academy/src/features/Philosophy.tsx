@@ -17,6 +17,6 @@ export function Philosophy(){
     {source.timestamps&&<div className="talk-chapters" aria-label="主辦方章節索引">{source.timestamps.map(t=><div key={t.time}><span className="mono">{t.time}</span><span>{t.title}</span></div>)}</div>}
     <div className="source-limits"><strong>{source.access==='unavailable'?'內容未查證':'證據的範圍'}</strong><p>{source.limitation}</p></div>
     {source.componentIds.length>0&&<div className="source-mapping"><span className="eyebrow">CONCEPT → SOURCE CODE</span><div className="inline-links">{source.componentIds.map(id=><a key={id} href={`#/components/${id}`}>{componentById.get(id)?.title} →</a>)}</div><p className="caption">對照代表主題關聯，不代表已證實此文章或講座直接產生該 Skill。</p></div>}</article>)}</div>
-    <Panel title="哪些事情仍然不知道？"><Badge kind="unknown"/><p>兩篇 X 文章已讀到正文與主要範例，但仍有局部截斷、嵌圖及年份待核實。訪談影音、吞吐數字的量測基線與品質結果，以及 mirror 與指定上游 commit 的逐檔差異仍未查證；不以第三方摘要補成作者發言。</p><a className="text-link" href="#/sources">瀏覽本機固定版本來源 →</a></Panel>
+    <Panel title="哪些事情仍然不知道？"><Badge kind="unknown"/><p>兩篇 X 文章已取得使用者提供的完整正文與程式碼／提示範例；原頁嵌圖與發表年份仍待獨立核實。訪談影音、吞吐數字的量測基線與品質結果，以及 mirror 與指定上游 commit 的逐檔差異仍未查證；不以第三方摘要補成作者發言。</p><a className="text-link" href="#/sources">瀏覽本機固定版本來源 →</a></Panel>
   </>;
 }

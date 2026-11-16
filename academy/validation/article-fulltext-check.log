@@ -1,0 +1,59 @@
+
+> pstack-interactive-academy@0.1.0 check
+> npm run content && npm run typecheck && npm run lint && npm test && npm run build
+
+
+> pstack-interactive-academy@0.1.0 content
+> python3 scripts/build_content.py
+
+Content verified: 69 components (58 skills), 23 playbooks, 137 source-backed steps, 93 reviewed relationships, 107 inert source files.
+
+> pstack-interactive-academy@0.1.0 typecheck
+> tsc --noEmit
+
+
+> pstack-interactive-academy@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> pstack-interactive-academy@0.1.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /Users/shou_tseng/Documents/yakushou730/pstack-research/academy
+
+ ✓ tests/progress.test.ts (2 tests) 2ms
+ ✓ tests/navigation.test.ts (5 tests) 4ms
+ ✓ tests/content.test.ts (6 tests) 80ms
+ ✓ tests/rendering.test.tsx (3 tests) 174ms
+
+ Test Files  4 passed (4)
+      Tests  16 passed (16)
+   Start at  13:56:57
+   Duration  764ms (transform 258ms, setup 0ms, collect 465ms, tests 260ms, environment 0ms, prepare 276ms)
+
+
+> pstack-interactive-academy@0.1.0 build
+> npm run content && npm run typecheck && vite build && python3 scripts/validate_build.py
+
+
+> pstack-interactive-academy@0.1.0 content
+> python3 scripts/build_content.py
+
+Content verified: 69 components (58 skills), 23 playbooks, 137 source-backed steps, 93 reviewed relationships, 107 inert source files.
+
+> pstack-interactive-academy@0.1.0 typecheck
+> tsc --noEmit
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 48 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                       0.81 kB │ gzip:  0.53 kB
+dist/assets/index-DABVTmSf.css       60.34 kB │ gzip: 12.93 kB
+dist/assets/index-BOzSQb_Y.js        93.67 kB │ gzip: 34.39 kB
+dist/assets/vendor-dzjnOsT9.js      192.35 kB │ gzip: 60.21 kB
+dist/assets/curriculum-pukDNYHZ.js  260.82 kB │ gzip: 71.45 kB
+✓ built in 548ms
+Static output verified: 4 entry assets, 107 pinned source payloads, no runtime dependency on ../pstack.
