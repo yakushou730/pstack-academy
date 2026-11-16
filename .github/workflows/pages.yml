@@ -49,6 +49,13 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
+      # npm can omit foreign-platform optional packages from a lockfile made on macOS.
+      # Match the native binary to the locked Rollup version on this Linux runner.
+      - name: Install Linux Rollup binary
+        run: |
+          ROLLUP_VERSION=$(node -p "require('./package-lock.json').packages['node_modules/rollup'].version")
+          npm install --no-save --package-lock=false --ignore-scripts "@rollup/rollup-linux-x64-gnu@$ROLLUP_VERSION"
+
       - name: Verify content, types, lint, tests and production build
         run: npm run check
 
