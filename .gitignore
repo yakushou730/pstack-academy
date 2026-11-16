@@ -1,0 +1,7 @@
+pstack/
+graft/
+academy/node_modules/
+academy/dist/
+**/__pycache__/
+**/.DS_Store
+academy/deployment/upload-*.json

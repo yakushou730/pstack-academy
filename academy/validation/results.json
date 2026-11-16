@@ -1,0 +1,32 @@
+{
+  "source_commit": "74bcc61bd216687b1d6d480c28f109adfc9824ec",
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "tests": {
+    "status": "PASS",
+    "files": 4,
+    "tests": 16
+  },
+  "production_build": "PASS",
+  "static_artifacts": "PASS",
+  "content": {
+    "components": 69,
+    "skills": 58,
+    "playbooks": 23,
+    "steps": 137,
+    "relationships": 93,
+    "source_payloads": 107
+  },
+  "pstack_working_tree": "clean",
+  "browser_qa": {
+    "status": "NOT_VERIFIED",
+    "connector_error": "The browser access host is unavailable",
+    "preview_error": "listen EPERM: operation not permitted 127.0.0.1:4173",
+    "observed_browser_result": "ERR_CONNECTION_REFUSED",
+    "screenshots": []
+  },
+  "notes": [
+    "Server-render checks do not prove browser interactions, responsive layout, localStorage or fetch.",
+    "No cloud registration, deployment or pstack source modifications."
+  ]
+}

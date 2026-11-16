@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "local_links_checked": 317,
+  "source_files_checked": 569,
+  "source_commit": "74bcc61bd216687b1d6d480c28f109adfc9824ec",
+  "source_working_tree": "clean",
+  "coverage": {
+    "files_excluding_git": 569,
+    "top_level_skills": 58,
+    "principles": 24,
+    "playbooks": 23,
+    "agents": 2,
+    "automation_instruction_skills": 3
+  },
+  "inventory_regeneration": "checked",
+  "errors": []
+}

@@ -1,0 +1,83 @@
+name: Validate and deploy Academy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: academy
+    steps:
+      - name: Check out Academy
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check out pinned research source
+        uses: actions/checkout@v4
+        with:
+          repository: backnotprop/pstack
+          ref: 74bcc61bd216687b1d6d480c28f109adfc9824ec
+          path: pstack
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: academy/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Verify content, types, lint, tests and production build
+        run: npm run check
+
+      - name: Audit Pages paths and source integrity
+        run: python3 scripts/validate_build.py
+
+      - name: Check research source stayed unchanged
+        run: test -z "$(git -C ../pstack status --porcelain=v1)"
+
+      - name: Upload only the static website
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: academy/dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
