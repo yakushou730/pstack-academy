@@ -1,3 +1,4 @@
+import { lessons } from '../src/content/lessons';
 import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Introduction } from '../src/features/Introduction';
@@ -32,7 +33,7 @@ describe('rendered curriculum boundaries',()=>{
   }
  });
  it('marks each educational scenario as Simulation and handles unknown IDs explicitly',()=>{
-  for(const id of ['debug','shipping','formal']){
+  for(const {id} of lessons){
    const markup=renderToStaticMarkup(<LearningProvider><LessonDetail id={id}/></LearningProvider>);
    expect(markup).toContain('Simulation');expect(markup).toContain('非真實執行');
   }

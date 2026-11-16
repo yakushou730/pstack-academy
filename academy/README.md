@@ -39,7 +39,7 @@ npm run dev -- --port 4173
 | 元件探索 | 58 個 Skills（含 24 原則）、2 Agents、6 程式工具、3 automation instructions 的獨立頁；中英文搜尋與類型篩選 |
 | 相依探索 | 93 條人工核對的核心關係，一跳／兩跳、上下游、關係種類、可點選圖與可排序證據表 |
 | 工作流探索 | 23 個 Playbooks、137 個來源步驟／分區；前後導覽、條件、I/O、原因、相關元件、完整步驟原文 |
-| 引導學習 | 三個 Simulation、六個帶來源的情境決策、錯誤回饋、重試與本機進度清除 |
+| 引導學習 | 五個 Simulation、十個帶來源的情境決策、錯誤回饋、重試與本機進度清除 |
 | 工程實務 | 八項工程機制與取捨、arena／swarm、Babysit／Shipping 對照 |
 | 來源閱讀 | 107 份 allowlist 文字來源、固定 SHA URL、行號與引用範圍、搜尋、載入時 hash 驗證、MIT 授權 |
 
@@ -107,8 +107,12 @@ source commit 或檔案內容改變時，content build 會失敗。**先更新�
 - 58 個 Skill 與 23 個 Playbooks 的目錄覆蓋完整；93 條關係是已人工核對的核心子集合，未收錄不代表沒有引用。
 - Markdown 描述的是指令規範，不保證 Agent 執行時必定遵守。獨立程式工具與宿主能力另有標記。
 - Orchestrate／Opening a PR 的分區是教學導覽，不捏造成原作者定義的線性狀態機。Autopilot-stack 必須先理解 full 的繼承與覆寫。
-- X 主文與 YouTube 訪談未取得全文，頁面不補寫發言、逐字稿或吞吐成效。
+- 兩篇 X 指南已讀正文與主要程式範例，但長段落有局部截斷、嵌圖未逐一核實；導讀、練習與對應元件見「作者與設計觀」。YouTube 訪談仍未取得可讀內容；不將作者的吞吐數字視為獨立實測。
 - 沒有量測本學院的學習成效，也沒有對 pstack 作完整跨 harness runtime 或速度品質實驗。
 - 尚未完成的 browser QA 路徑與操作方式列於驗證報告。
 
 本學院為研究與教學作品，不是 pstack 官方產品。打包的 pstack 原始碼依來源 MIT 授權保留於 Source Viewer，`pstack/` 保持不變。
+
+## 兩篇作者指南的教材更新
+
+新增 Part 1／Part 2 切換導讀，共 12 個主題、教材自編的 CLI／Feature Map／提示範例，以及驗證與設計兩個模擬情境。每個主題連到對應元件。外部來源取得範圍記錄於 [研究補記](research/x-article-guides.md)，不將本文等同固定版本的 runtime 行為。

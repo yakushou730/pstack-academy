@@ -1,7 +1,7 @@
 import { componentRef, coreRef, workflowRef } from './catalog';
 import type { SourceRef } from './model';
 export interface AuthorSource {
-  id:string; title:string; author:string; url:string; date:string; access:'full'|'chapters'|'metadata'|'unavailable';
+  id:string; title:string; author:string; url:string; date:string; access:'full'|'body'|'chapters'|'metadata'|'unavailable';
   summary:string; limitation:string; componentIds:string[]; timestamps?:{time:string;title:string}[];
 }
 export const authorSources:AuthorSource[]=[
@@ -11,10 +11,11 @@ export const authorSources:AuthorSource[]=[
   {id:'experience',title:'The Importance of Being Experience First',author:'Lauren Tan',url:'https://www.no.lol/2015-04-10-the-importance-of-being-experience-first/',date:'2015-04-10',access:'full',summary:'文章把設計放在整體使用經驗、運作方式與形式功能，而不只是視覺。可作體驗優先原則的歷史背景。',limitation:'這是 pstack 以前的文章。將它與原則連結是研究推論；本機檔案未引用此文，不能當成直接來源或 AI 成效證明。',componentIds:['principle-experience-first']},
   {id:'narrowing',title:'Type Narrowing in TypeScript',author:'Lauren Tan',url:'https://www.no.lol/2019-12-27-type-narrowing/',date:'2019-12-28（依頁面，非 URL）',access:'full',summary:'用 lexer／parser、type guards 與 assertion functions 說明型別縮小，並保留精確度的務實取捨。可輔助理解型別如何拒絕錯誤組合。',limitation:'未談 pstack。與 type-system-discipline 的關係是延伸閱讀的研究推論，沒有證據說此 Skill 直接取自文章。',componentIds:['principle-type-system-discipline','typescript-best-practices']},
   {id:'speaking',title:'Speaking · 作者演講索引',author:'Lauren Tan',url:'https://www.no.lol/speaking/',date:'索引日期未標示',access:'metadata',summary:'第一手索引列出 Just Use Any: js.la Edition（2020-01-30）與 From Front End to Full Stack 等歷史分享。',limitation:'只取得索引介紹與日期，未播放影片。不能據此重建演講內容或稱為 pstack 教學。',componentIds:[]},
-  {id:'x-blog',title:'Pstack Blog · README 連結',author:'X @poteto',url:'https://x.com/poteto/article/2094457600259842065?lang=en',date:'發表日期待確認',access:'unavailable',summary:'上游 README 以 Pstack Blog 標籤連出這個頁面。',limitation:'本輪擷取收到 403，未取得正式標題或全文。此卡只提供來源位置，不補寫摘要、引文或成效數字。',componentIds:['poteto-mode']},
+  {id:'x-blog',title:'The Complete Guide to pstack Pt. 1',author:'Lauren Tan · X @poteto',url:'https://x.com/poteto/article/2094457600259842065?lang=en',date:'9 月 1 日（頁面未顯示年份）',access:'body',summary:'以驗證技能為基礎，建立可操作產品的 CLI 與 Feature Map，持續維護，再考慮雲端 Agent 與並行工作。上方導讀提供對應練習。',limitation:'2026-11-16 透過登入後的 Chrome 讀取正文與程式碼區塊；部分長段落擷取截斷，嵌圖未逐一核實。數量與倍數是作者自述，未獨立驗證成效。',componentIds:['create-verification-skill','maintain-verification-skill','principle-build-the-lever','swarm']},
+  {id:'x-part-2',title:'The Complete Guide to pstack Pt. 2',author:'Lauren Tan · X @poteto',url:'https://x.com/poteto/article/2097732320606507506',date:'9 月 10 日（頁面未顯示年份）',access:'body',summary:'從重述問題、理解機制與歷史，到用教學倒推介面、比較原型、架構草圖與可驗證計畫；以實驗回答設計未知。',limitation:'2026-11-16 已讀登入後正文至結尾；部分長段落擷取截斷，嵌圖未逐一核實。本文工作方式與固定版本的程式庫需分開對照，不能據此保證品質或產量。',componentIds:['teach','how','why','recall','technical-writing','architect','arena','check-plan']},
   {id:'youtube',title:'待核實的 pstack 訪談影片',author:'搜尋索引指向 Matt Pocock 與 Lauren Tan；一手頻道欄位未確認',url:'https://www.youtube.com/watch?v=MN9dGgmLyso',date:'發布日期待確認',access:'unavailable',summary:'已定位 YouTube URL；本次只讀到頁面外殼，未取得可讀字幕、影片介紹或逐字稿。',limitation:'不採第三方 transcript，不以未驗證標題作作者產量或工作方法的證據。',componentIds:[]},
 ];
-export const accessLabels={full:'已讀全文',chapters:'介紹與章節',metadata:'僅 metadata',unavailable:'未取得內容'};
+export const accessLabels={full:'已讀全文',body:'已讀正文（局部截斷）',chapters:'介紹與章節',metadata:'僅 metadata',unavailable:'未取得內容'};
 export interface Insight {id:string;title:string;subtitle:string;mechanism:string;application:string;tradeoff:string;source:SourceRef;componentId?:string}
 export const insights:Insight[]=[
   {id:'proof',title:'把「完成」寫成可觀察的結果',subtitle:'RELIABILITY / VERIFICATION',mechanism:'Prove It Works 要求檢查真實 artifact，不能以編譯成功或自述代替。',application:'為任務先命名一條真實使用路徑、預期終點與可保存證據。',tradeoff:'實際 driver、baseline 與環境維護需要成本；unit tests 與 live proof 仍有不同責任。',source:componentRef('principle-prove-it-works'),componentId:'principle-prove-it-works'},

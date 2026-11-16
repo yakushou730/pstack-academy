@@ -1,3 +1,4 @@
+import { articleGuides } from '../src/content/article-guides';
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -56,11 +57,11 @@ describe('pinned, traceable curriculum',()=>{
     for(const item of catalog.components)verifyRef(item.source);
     for(const item of insights)verifyRef(item.source);
   });
-  it('has three simulations and evidence-backed answers with one correct choice each',()=>{
-    expect(lessons).toHaveLength(3);
+  it('has five simulations and evidence-backed answers with one correct choice each',()=>{
+    expect(lessons).toHaveLength(5);
     const questions=[...introQuestions,...lessons.flatMap(l=>l.questions)];
     expect(new Set(questions.map(q=>q.id)).size).toBe(questions.length);
-    expect(lessons.flatMap(l=>l.questions)).toHaveLength(6);
+    expect(lessons.flatMap(l=>l.questions)).toHaveLength(10);
     for(const question of questions){
       verifyRef(question.source);
       expect(question.options.filter(o=>o.correct)).toHaveLength(1);
@@ -69,11 +70,25 @@ describe('pinned, traceable curriculum',()=>{
     }
   });
   it('keeps unverified external content explicitly unavailable',()=>{
-    for(const id of ['x-blog','youtube']){
+    for(const id of ['youtube']){
       const source=authorSources.find(s=>s.id===id)!;
       expect(source.access).toBe('unavailable');
       expect(source.timestamps).toBeUndefined();
       expect(source.limitation.length).toBeGreaterThan(25);
+    }
+    for(const id of ['x-blog','x-part-2']){
+      const source=authorSources.find(s=>s.id===id)!;
+      expect(source.access).toBe('body');
+      expect(source.limitation).toContain('截斷');
+    }
+    for(const guide of articleGuides){
+      expect(authorSources.some(s=>s.url===guide.url&&s.access==='body')).toBe(true);
+      for(const step of guide.steps){
+        for(const id of step.componentIds)expect(componentById.has(id),`${guide.id} -> ${id}`).toBe(true);
+      }
+    }
+    for(const question of lessons.flatMap(l=>l.questions)){
+      if(question.articleSourceId)expect(authorSources.some(s=>s.id===question.articleSourceId)).toBe(true);
     }
     expect(()=>componentRef('invented-skill')).toThrow();
     expect(()=>workflowRef('invented-flow')).toThrow();

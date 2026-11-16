@@ -54,17 +54,19 @@
 
 索引確認作者長期談型別系統、工程效能與從前端到全端的學習；它適合補人物背景，不足以重建演講內容，更不能把這些舊演講描述為 pstack 教學。[來源：作者演講索引](https://www.no.lol/speaking/)。
 
-## 已定位但未能讀到實質內容的來源
+## 初次擷取受限與後續補證
 
 | 來源／連結 | 作者或主辦 | 日期 | 實際取得及限制 |
 |---|---|---|---|
-| [Pstack Blog（README 的連結標籤）](https://x.com/poteto/article/2094457600259842065?lang=en) | X `@poteto`，由本機上游 README 連出 | 未確認 | 直接擷取回覆 403；未取得文章正式標題、全文或發表日期。不能把搜尋摘要當成作者完整論證。 |
+| [Pstack Blog（README 的連結標籤）](https://x.com/poteto/article/2094457600259842065?lang=en) | X `@poteto`，由本機上游 README 連出 | 未確認 | 初次直接擷取為 403；後續經使用者登入的 Chrome 讀到正文與程式範例，標題為 The Complete Guide to pstack Pt. 1，頁面日期 9 月 1 日、未顯示年份。長段落有局部截斷、嵌圖未逐一核實，詳見 [補記](x-article-guides.md)。 |
 | [LIVE: Poteto (creator of pstack) on shipping 1,000's of PR's a month at SpaceX](https://www.youtube.com/watch?v=MN9dGgmLyso) | 搜尋結果指向 Matt Pocock 訪談 Lauren Tan；本輪未從一手頁驗證頻道欄位 | 未確認 | 網頁回傳 YouTube 登入／頁尾外殼，沒有可讀影片介紹、字幕或逐字稿；oEmbed 擷取亦失敗。標題可作待核實的影片索引，不能作產量或工作流程的證據。 |
 
-搜尋另出現第三方 transcript、摘要及教學站，僅用於找到原始連結，未拿它們替代一手發言。尤其「每月 2,500 PR」、「信任階梯」的完整內容、數字定義、適用時間與品質衡量，本研究**未由影片或 X 原文核實**，不應放入課程作為確定事實。
+搜尋另出現第三方 transcript、摘要及教學站，僅用於找到原始連結，未拿它們替代一手發言。尤其「每月 2,500 PR」、「信任階梯」的完整內容、數字定義、適用時間與品質衡量，初次研究**未由影片或 X 原文核實**；後續 X 正文已看到作者的產量與倍數主張，但仍未獨立核實量測與品質，不應放入課程作為確定事實。
 
 ## 對後續教材的使用方式與未知事項
 
 可以從本機固定版本教「可驗證工作單位 → 真實使用路徑 → 證據 → 再並行」，並用 Maven 的主辦方章節說明作者公開談過 verification／eval 這些主題；流程細節仍須引用固定版本 skill。[程式庫證據：create-verification-skill](https://github.com/backnotprop/pstack/blob/74bcc61bd216687b1d6d480c28f109adfc9824ec/skills/create-verification-skill/SKILL.md)。外部兩篇歷史文章則可補充體驗與型別的工程背景。
 
-仍待補證：X 主文章全文與日期、訪談及分享影片的官方字幕／影音、任何宣稱吞吐提升的測量基線與品質結果、mirror 與指定上游 commit 的逐檔差異。此階段沒有證據證明單靠安裝 pstack 就能取得特定倍數的效能或相同產量。網頁抓取亦顯示上游 README 與最新 manifest 的模型預設及原則數量可能不同步，因此教材的命令、數量、模型名稱應以本機 commit 為準，不把外部 `main` 當固定規格。
+仍待補證：X 文章局部截斷與年份、訪談及分享影片的官方字幕／影音、任何宣稱吞吐提升的測量基線與品質結果、mirror 與指定上游 commit 的逐檔差異。此階段沒有證據證明單靠安裝 pstack 就能取得特定倍數的效能或相同產量。網頁抓取亦顯示上游 README 與最新 manifest 的模型預設及原則數量可能不同步，因此教材的命令、數量、模型名稱應以本機 commit 為準，不把外部 `main` 當固定規格。
+
+2026-11-16 補證：新增兩篇 X 指南的登入後閱讀紀錄、重點與教材映射，見 [x-article-guides.md](x-article-guides.md)。先前的 403 為初次擷取歷史，不代表目前完全未讀內容。

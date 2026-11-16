@@ -48,7 +48,7 @@ Server-render tests 只能證明各內容頁可產生 markup、引用與 Simulat
 - [ ] 工作流：Bug fix 第一步前一個 disabled，最後一步下一個 disabled；原文／I/O／conditional metadata 正確；refresh `#/workflows/bug-fix?step=3` 保留步驟。
 - [ ] Source Viewer：從 step 點引用，載入後 hash check 成功、行號／範圍對應；搜尋、完整檔案、外部固定 SHA URL；中斷載入有可理解的重試。
 - [ ] 作者頁：切取得層級；X／YouTube 無全文且沒有虛構內容；Maven 時間標成主辦方章節。
-- [ ] 三個 Simulation：先錯誤選項看到解釋，再修正、下一題；restart；全對顯示完成；不發生真實 PR／TLC 操作。
+- [ ] 五個 Simulation：先錯誤選項看到解釋，再修正、下一題；restart；全對顯示完成；不發生真實 PR／TLC 操作。
 - [ ] 進度：reload 恢復作答／visited，清除可重置；儲存被拒絕仍可使用本次進度。
 - [ ] 390／768／1440px：主要內容可讀、menu 行為、桌面與手機 graph／table 不遮擋。
 - [ ] 鍵盤：skip link、Tab／Enter 選節點與步驟、Escape 關閉手機 menu 並回到開啟按鈕、可見 focus；減少動態效果正常。
